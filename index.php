@@ -8,7 +8,7 @@ if($dossier = opendir('./'))
         if($fichier != '.' && $fichier != '..' && $fichier != 'index.php')
         {
 $nb_fichier++; // On incrémente le compteur de 1
-echo '<li><a href="./' . $fichier . '">' . $fichier . '</a></li>';
+echo '<li><a href="http://localhost/index.php' . '">' . $fichier . '</a></li>';
         } // On ferme le if (qui permet de ne pas afficher index.php, etc.)
              
         } //On termine la boucle
