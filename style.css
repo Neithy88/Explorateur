@@ -1,0 +1,101 @@
+body{
+    margin: 0 0;
+    font-family: 'Kanit', sans-serif;
+    background-image: url('Images/Illustrations/jungle2.png');
+    background-size:cover;
+    opacity: 0.90;
+    background-color: black!important;
+  
+    
+}
+
+header{
+    background-color: black;
+    width: 100%;
+    height:120px;
+    color:whitesmoke;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    letter-spacing: 3px; 
+    
+    
+}
+
+
+
+.col-lg-4{
+    align-items:center;
+    height:100%;
+     
+
+}
+
+
+#contenu{
+    
+    
+    
+    /* rgba(0, 0, 0, 0.801) */
+   
+}
+
+i{
+    color:rgb(68, 214, 44);
+    font-size:55px;
+}
+
+#bear{
+    background-image: url(Images/Photos/Bear-Grylls.jpeg);
+    background-size: cover;
+    border-radius: 10%;
+    height:500px;
+    width:350px;
+    
+}
+
+.col-lg-4>a{
+    color:whitesmoke !important;
+    font-size: 20px;
+  
+}
+
+
+a{
+    /* background-image: url("Images/Illustrations/navigation.png") */
+}
+
+.boussole{
+    margin-right: 20px;
+    width: 15%;
+    height:15%;
+}
+
+#acs{
+    padding-left:20px;
+    align-content:left;
+    
+}
+
+
+h1{
+    
+    text-align: right;
+    padding-top:5%;
+    
+    
+}
+
+h2{
+    font-size:30px;
+    text-align: center;
+    padding-top:200px;
+    padding-bottom:25px;
+    text-transform: uppercase;
+    color:rgb(68, 214, 44)!important;
+}
+
+
+
+

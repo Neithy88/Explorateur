@@ -1,27 +1,116 @@
-<?php //affichage des fichiers
+<!DOCTYPE html>
+<html lang="FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bear Grylls l'explorateur de fichiers</title>
 
-$racine="C:/xampp/htdocs/explorateur/"; // Adresse du dossier sur le disque dur
-$base_url = "http://localhost/explorateur/"; // //Adresse du dossier en local
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Kanit');
+    </style>
+    <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+   
+</head>
+<body>
 
-echo $_SERVER["DOCUMENT_ROOT"];
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="Images/Illustrations/mini_ACS.jpg" alt=""> 
+            </div>
 
-if(isset($_GET['dossier'])) {
-  $chemin = $_GET['dossier']; // ouvre le dossier en renseignant son chemin entre les parenthèses et de mettre le pointeur dedans
-}
-else {
-   $chemin = ".";
-}
+            <div class ="col-lg-6">
+                <h1>Bear Grylls l'explorateur</h1>
+            </div>
+        </div>
+    </div>
+</header>
+<h2>Partez à l'aventure & explorer les fylls de Bear !</h2>
 
-$dossier = opendir($chemin);
+<section id="contenu">
+   <div class="container">
+        <div class="row">
+           <div class="col-lg-4">
+               
+                <?php
+                    $racine= $_SERVER["DOCUMENT_ROOT"]; // Adresse du dossier sur le disque dur
+                    $base_url = "http://localhost/"; // //Adresse du dossier en local
+                    $chemin_reel = realpath("index.php"); //On récupère le chemin réel d'index.php, par exemple c:/wamp64/www/explorateur/index.php
+                    $chemin_reel = str_replace("index.php","",$chemin_reel); //On enlève "index.php" pour ob
 
-while ($fichier = readdir($dossier)) //Boucle qui affiche le fichier pour chaque dossier
-{
-     if ($fichier != "." && $fichier != "..") // Filtre anti-points ! 
-     {
-        echo '<a href="'.$base_url.'?dossier='.$chemin."/".$fichier.'">'.$fichier.'</a><br>';
-     }//base url pour partir de ce dossier
-     // ?dossier=  exprimé la variable get
-     // on scan les dossier pa rapport à la base URL 
-}
-closedir($dossier); 
-?> 
+
+                    if(isset($_GET['dossier']) && !empty($_GET['dossier'])) 
+                        {
+                            $chemin = $_GET['dossier']; //Si on a une info dans $_GET['dossier'], c'est le chemin qu'on va scanner
+                        }
+                        if(isset($chemin) && $chemin != "")
+                        {
+                            $retour = strrpos($chemin, "/");  
+                            $retour = substr($chemin, 0, $retour);    
+                            echo '<p><a href="?dossier='.$retour.'"><i class="fas fa-chevron-circle-left"></i></a></p>';   
+                            
+                        }
+                    else 
+                        {
+                            $chemin = "."; //Sinon, si il n'y a rien dans $_GET, c'est la première visite de l'explorateur : on scan le dossier courant
+                            // echo '<p><a href="./">Retour</a></p>';
+                        }
+
+                    $dossier = scandir($chemin); //On scan le chemin demandé
+
+
+                    foreach ($dossier as $key => $file) 
+                    { //la boucle qui passe sur chaque fichier du dossier courant
+                        if ($file != "." && $file != "..") 
+                        { 
+                            if ($file != ".git" && $chemin.'/'.$file != './index.php' && $chemin.'/'.$file != './dl.php'&& $file != "README.md" && $chemin.'/'.$file !=  "./style.css"){
+                                if(is_dir($chemin.'/'.$file)) 
+                                {
+                                    echo  '<a href="?dossier='.$chemin.'/'.$file.'"> <img class ="boussole" src="Images/Illustrations/compass4.png"/>'.$file.'</a><br><br>'; //Si c'est un dossier, on fait un lien vers notre fichier php d'explorateur avec l'info du chemin à scanner en GET (le href commence par ? donc il n'y a pas d'URL, juste des variables GET, ça rapelle le même fichier)
+                                }
+                                else
+                                {
+                                    echo '<a href="'.$chemin.'/'.$file.'"><img class="boussole" src="Images/Illustrations/compass5.png"/>'.$file.'</a><br> <br>'; //Sinon, ce n'est pas un dossier : on fait un lien direct vers le fichier (avec target="_blank" pour ouvrir dans un nouvel onglet)
+                                }
+                            }
+                            
+                        }
+
+                    }
+
+                    // $(location).attr('href', 'dl.php?zip=' + data);
+
+                    /******* Il est utile de connaitre le chemin réel des fichiers (/var/www/html/... ou C:/wamp64/www/....) *******/
+
+                    // $chemin_reel = realpath("index.php"); //On récupère le chemin réel d'index.php, par exemple c:/wamp64/www/explorateur/index.php
+                    // $chemin_reel = str_replace("index.php","",$chemin_reel); //On enlève "index.php" pour obtenir un chemin du type c:/wamp64/www/explorateur/
+                    // echo $chemin_reel;
+
+                
+
+                ?>
+            </div>
+        
+
+            <div class="col-lg-8"id="bear">
+                
+            </div>
+        </div>
+
+
+
+     
+    </div>
+
+
+    
+</div>
+
+
+
+</body>
+</html>
