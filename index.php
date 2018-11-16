@@ -19,11 +19,11 @@
 <header>
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <img src="Images/Illustrations/mini_ACS.jpg" alt=""> 
             </div>
 
-            <div class ="col-lg-6">
+            <div class ="col-lg-4">
                 <h1>Bear Grylls l'explorateur</h1>
             </div>
         </div>
@@ -67,14 +67,14 @@
                     { //la boucle qui passe sur chaque fichier du dossier courant
                         if ($file != "." && $file != "..") 
                         { 
-                            if ($file != ".git" && $chemin.'/'.$file != './index.php' && $chemin.'/'.$file != './dl.php'&& $file != "README.md" && $chemin.'/'.$file !=  "./style.css"){
+                            if ($file != ".git" && $chemin.'/'.$file != './index.php' && $chemin.'/'.$file != './dl.php'&& $file != "README.md" && $chemin.'/'.$file !=  "./style.css" && $file != "Bear-Grylls.jpeg" ){
                                 if(is_dir($chemin.'/'.$file)) 
                                 {
-                                    echo  '<a href="?dossier='.$chemin.'/'.$file.'"> <img class ="boussole" src="Images/Illustrations/compass4.png"/>'.$file.'</a><br><br>'; //Si c'est un dossier, on fait un lien vers notre fichier php d'explorateur avec l'info du chemin à scanner en GET (le href commence par ? donc il n'y a pas d'URL, juste des variables GET, ça rapelle le même fichier)
+                                    echo  '<a href="?dossier='.$chemin.'/'.$file.'"> <img class ="boussole" src="Images/Illustrations/compass2.png"/>'.$file.'</a><br><br>'; //Si c'est un dossier, on fait un lien vers notre fichier php d'explorateur avec l'info du chemin à scanner en GET (le href commence par ? donc il n'y a pas d'URL, juste des variables GET, ça rapelle le même fichier)
                                 }
                                 else
                                 {
-                                    echo '<a href="'.$chemin.'/'.$file.'"><img class="boussole" src="Images/Illustrations/bag2.png"/>'.$file.'</a><br> <br>'; //Sinon, ce n'est pas un dossier : on fait un lien direct vers le fichier (avec target="_blank" pour ouvrir dans un nouvel onglet)
+                                    echo '<a href="'.$chemin.'/'.$file.'"><img class="bag" src="Images/Illustrations/bag2.png"/>'.$file.'</a><a class="dl" href="dl.php" class="btn btn-info">Télécharger</a><br> <br>'; //Sinon, ce n'est pas un dossier : on fait un lien direct vers le fichier (avec target="_blank" pour ouvrir dans un nouvel onglet)
                                 }
                             }
                             
@@ -91,7 +91,7 @@
                     // echo $chemin_reel;
 
                 
-
+                    // <a href="dl.php" class="btn btn-info">Télécharger
                 ?>
             </div>
         

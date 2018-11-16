@@ -5,6 +5,7 @@ body{
     background-size:cover;
     opacity: 0.90;
     background-color: black!important;
+    
   
     
 }
@@ -24,18 +25,9 @@ header{
 }
 
 
-
-.col-lg-4{
-    align-items:center;
-    height:100%;
-     
-
-}
-
-
 #contenu{
     
-    
+   
     
     /* rgba(0, 0, 0, 0.801) */
    
@@ -43,7 +35,7 @@ header{
 
 i{
     color:rgb(68, 214, 44);
-    font-size:55px;
+    font-size:50px;
 }
 
 #bear{
@@ -57,20 +49,37 @@ i{
 
 .col-lg-4>a{
     color:whitesmoke !important;
-    font-size: 20px;
+    font-size: 15px;
   
 }
 
 
 a{
+    font-size:10px;
     /* background-image: url("Images/Illustrations/navigation.png") */
 }
 
 .boussole{
     margin-right: 20px;
     width: 15%;
-    height:15%;
+    height:10%;
 }
+
+.bag{
+    margin-right: 20px;
+    width: 45px;
+    height:40px;
+}
+
+
+.dl{
+    font-size: 10px;
+    margin-left:20px;
+    background-color: blue;
+    color:white;
+    border-radius:10%;
+}
+
 
 #acs{
     padding-left:20px;
