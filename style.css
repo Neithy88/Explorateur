@@ -53,7 +53,14 @@ i{
   
 }
 
-
+.infos
+{
+    color:whitesmoke ;
+}
+.date
+{
+    color:whitesmoke ;
+}
 a{
     font-size:10px;
     /* background-image: url("Images/Illustrations/navigation.png") */
