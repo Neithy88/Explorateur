@@ -20,6 +20,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
+            <div class="col-lg-6">
                 <img src="Images/Illustrations/mini_ACS.jpg" alt=""> 
             </div>
 
@@ -74,7 +75,7 @@
                                 }
                                 else
                                 {
-                                    echo '<a href="'.$chemin.'/'.$file.'"><img class="boussole" src="Images/Illustrations/compass5.png"/>'.$file.'</a><br> <br>'; //Sinon, ce n'est pas un dossier : on fait un lien direct vers le fichier (avec target="_blank" pour ouvrir dans un nouvel onglet)
+                                    echo '<a href="'.$chemin.'/'.$file.'"><img class="boussole" src="Images/Illustrations/bag2.png"/>'.$file.'</a><br> <br>'; //Sinon, ce n'est pas un dossier : on fait un lien direct vers le fichier (avec target="_blank" pour ouvrir dans un nouvel onglet)
                                 }
                             }
                             
