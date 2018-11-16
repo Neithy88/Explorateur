@@ -62,11 +62,17 @@
 
                     $dossier = scandir($chemin); //On scan le chemin demandé
 
+                    $nb=0;
+                    $taille=0;
 
                     foreach ($dossier as $key => $file) 
                     { //la boucle qui passe sur chaque fichier du dossier courant
                         if ($file != "." && $file != "..") 
                         { 
+                            $nb=$nb +1;
+                            $taille += filesize($chemin.'/'.$file);
+    
+
                             if ($file != ".git" && $chemin.'/'.$file != './index.php' && $chemin.'/'.$file != './dl.php'&& $file != "README.md" && $chemin.'/'.$file !=  "./style.css" && $file != "Bear-Grylls.jpeg" ){
                                 if(is_dir($chemin.'/'.$file)) 
                                 {
@@ -81,7 +87,19 @@
                         }
 
                     }
-
+                    ?>
+                <div class="infos">
+                    <?php
+                    printf("%d fichiers - %.0f ko - %.0f Mo libres",$nb,$taille/1024,(disk_free_space($racine))/1048576);
+                    ?>
+                </div>
+                <div class="date">
+                    <?php
+                    echo date("d/m/Y H:i:s",filectime($racine));
+                    ?>
+                </div>
+                
+                    <?php
                     // $(location).attr('href', 'dl.php?zip=' + data);
 
                     /******* Il est utile de connaitre le chemin réel des fichiers (/var/www/html/... ou C:/wamp64/www/....) *******/
@@ -92,7 +110,7 @@
 
                 
                     // <a href="dl.php" class="btn btn-info">Télécharger
-                ?>
+                    ?>
             </div>
         
 
