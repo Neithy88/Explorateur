@@ -20,7 +20,6 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-            <div class="col-lg-6">
                 <img src="Images/Illustrations/mini_ACS.jpg" alt=""> 
             </div>
 
